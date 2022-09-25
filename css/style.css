@@ -1,0 +1,242 @@
+/* ================================================= */
+/* Custom properties */
+/* ================================================= */
+:root {
+	--page-bg: #3C3A47;
+
+	--primary-text: #F5F5F6;
+	--muted-text: #77757E;
+
+	--logo-fill: var(--primary-text);
+
+	--input-bg: #2D2C35;
+	--input-bg-hover: #24232b;
+	--input-border-focus: #1d1c23;
+	--input-text: var(--primary-text);
+	--input-placeholder: var(--muted-text);
+
+	--button-text: #D19361;
+	--button-text-hover: #faf4ef;
+
+	--icon-socials: var(--primary-text);
+	--icon-socials-hover: #b1b0b5;
+
+	--timer-bg: var(--input-bg-hover);
+	--timer-text-muted: var(--icon-socials-hover);
+
+	--default-border-radius: 8px;
+	--default-transition: color .3s ease-in-out, background-color .3s ease-in-out, border-color .3s ease-in-out, fill .3s ease-in-out;
+}
+
+
+
+/* ================================================= */
+/* General styles */
+/* ================================================= */
+html {
+	font-size: 112.5%; /* 18px */
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	line-height: 1.5;
+	color: var(--primary-text);
+	background-color: var(--page-bg);
+}
+
+h1 {
+	font-size: 2.4rem;
+	line-height: 1.3;
+	font-weight: 700;
+	letter-spacing: -2px;
+	margin: 2rem 0;
+}
+
+h2 {
+	font-size: 1.33rem;
+	line-height: 1.3;
+	font-weight: 700;
+	margin: 2rem 0;
+}
+
+p {
+	margin: 0 0 1rem;
+}
+
+
+
+/* ================================================= */
+/* Forms */
+/* ================================================= */
+input {
+	background-color: var(--input-bg);
+	border-radius: var(--default-border-radius);
+	border: none;
+	padding: 1.333rem;
+	outline: none;
+	margin-bottom: 1rem;
+	width: 100%;
+	line-height: 1.5;
+	border: 1px solid var(--input-bg);
+	color: var(--input-text);
+	transition: var(--default-transition);
+}
+
+input::placeholder {
+	color: var(--input-placeholder);
+	transition: var(--default-transition);
+}
+
+input:hover {
+	background-color: var(--input-bg-hover);
+}
+
+input:focus {
+	border-color: var(--input-border-focus);
+}
+
+button {
+	background-color: transparent;
+	border-radius: var(--default-border-radius);
+	padding: 1.333rem 2.666rem;
+	color: var(--button-text);
+	border: 1px solid var(--button-text);
+	line-height: 1.5;
+	font-weight: 700;
+	width: 100%;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: var(--default-transition);
+}
+
+button:hover {
+	background-color: var(--button-text);
+	color: var(--button-text-hover);
+}
+
+
+
+/* ================================================= */
+/* Layout */
+/* ================================================= */
+#main-container {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 64px;
+}
+
+
+
+/* ================================================= */
+/* Main content */
+/* ================================================= */
+#logo svg {
+	height: 3rem;
+	display: block;
+	fill: var(--logo-fill);
+}
+
+.subtitle {
+	color: var(--muted-text);
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 0;
+}
+
+#notify-form {
+	width: 100%;
+}
+
+#timer-container {
+	background-color: var(--timer-bg);
+	padding: 2rem;
+	margin: 0;
+	list-style: none;
+	border-radius: var(--default-border-radius);
+	color: var(--timer-text-muted);
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+#timer-container span {
+	color: var(--primary-text);
+	font-size: 1.33rem;
+	line-height: 1.3;
+	font-weight: 700;
+}
+
+#timer-container li:nth-child(even) {
+	display: none;
+}
+
+
+
+/* ================================================= */
+/* Footer */
+/* ================================================= */
+#social-icons {
+	list-style: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 1.333rem;
+	margin: 0 0 2rem;
+	padding: 0;
+}
+
+#social-icons svg {
+	fill: var(--icon-socials);
+	transition: var(--default-transition);
+	display: block;
+}
+
+#social-icons a:hover svg {
+	fill: var(--icon-socials-hover);
+}
+
+
+
+/* ================================================= */
+/* 768px + */
+/* ================================================= */
+@media screen and (min-width: 768px) {
+	#main-container {
+		padding: 4rem;
+		margin: 0 auto;
+		text-align: center;
+		align-items: center;
+		gap: 128px;
+	}
+
+	#notify-form {
+		max-width: 30rem;
+	}
+
+	#timer-container {
+		flex-direction: row;
+		gap: 1rem;
+		display: inline-flex;
+		text-align: center;
+	}
+
+	#timer-container li:nth-child(odd) {
+		min-width: 4rem;
+	}
+
+	#timer-container li:nth-child(even) {
+		display: inline-block;
+		font-size: 2.4rem;
+		line-height: 1.3;
+		font-weight: 300;
+		width: auto;
+		padding-top: .4rem;
+	}
+
+	#timer-container span {
+		font-size: 3.15rem;
+		line-height: 1.4;
+		display: block;
+	}
+}
