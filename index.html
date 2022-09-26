@@ -12,13 +12,13 @@
 	<!-- Google fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@900&family=Poppins:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
 
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div id="main-container">
+	<div id="timer-running">
 		<a href="index.html" id="logo">
 			<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M64 32C64 49.6731 49.6731 64 32 64C14.3269 64 0 49.6731 0 32C0 14.3269 14.3269 0 32 0C49.6731 0 64 14.3269 64 32ZM46.8275 12.2667H36.5972C33.8976 12.2667 31.5227 14.1151 30.8529 16.7354L27.8082 28.618C27.1586 31.0555 24.9461 32.782 22.4089 32.782H9.31656C8.36255 32.782 7.57092 33.5742 7.7536 34.4882C8.54523 38.4288 12.0365 41.4147 16.2179 41.4147H24.5402C28.5186 41.4147 31.8881 38.7132 32.8624 35.0367C33.1872 33.7976 34.1818 32.782 35.4606 32.782H44.4323C45.4472 32.782 46.3403 32.0914 46.5839 31.1164L50.2782 16.7354C50.8668 14.4604 49.1618 12.2667 46.8275 12.2667ZM45.7314 18.5635C45.569 19.2134 44.9804 19.6603 44.3105 19.6603H34.7704C34.2021 19.6603 33.7758 19.1119 33.9382 18.5635C34.1006 17.9135 34.6892 17.4666 35.3591 17.4666H44.8992C45.4675 17.4666 45.8735 18.015 45.7314 18.5635ZM36.7394 49.6005H39.1142C40.0683 49.6005 40.8396 50.3927 40.8396 51.3271V51.713H31.401H21.9623V51.3271C21.9623 50.3724 22.7337 49.6005 23.6877 49.6005H26.0625C27.5037 49.6005 28.6607 48.4224 28.6607 47.0006V43.9944C28.6607 42.5522 27.4834 41.3944 26.0625 41.3944H31.401H36.7394C35.2982 41.3944 34.1412 42.5725 34.1412 43.9944V47.0006C34.1412 48.4427 35.3185 49.6005 36.7394 49.6005Z"/>
@@ -30,13 +30,13 @@
 			<h1>Grand Opening of Furniture Inc. Mega Store</h1>
 
 			<ul id="timer-container">
-				<li><span id="days">0</span> days</li>
+				<li id="days" role="timer"><span>0</span> days</li>
 				<li>:</li>
-				<li><span id="hours">0</span> hours</li>
+				<li id="hours" role="timer"><span>0</span> hours</li>
 				<li>:</li>
-				<li><span id="minutes">0</span> minutes</li>
+				<li id="minutes" role="timer"><span>0</span> minutes</li>
 				<li>:</li>
-				<li><span id="seconds">0</span> seconds</li>
+				<li id="seconds" role="timer"><span>0</span> seconds</li>
 			</ul>
 		</div> <!-- end main-content -->
 
@@ -96,9 +96,23 @@
 			</ul>
 
 			<p>&copy; Copyright 2022 Furniture Inc. All rights reserved.</p>
-			<p>Design and code by Adi Purdila.</p>
 		</footer>
-	</div> <!-- end main-container -->
+	</div> <!-- end timer-running -->
+
+	<div id="timer-end">
+		<a href="index.html" id="logo">
+			<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M64 32C64 49.6731 49.6731 64 32 64C14.3269 64 0 49.6731 0 32C0 14.3269 14.3269 0 32 0C49.6731 0 64 14.3269 64 32ZM46.8275 12.2667H36.5972C33.8976 12.2667 31.5227 14.1151 30.8529 16.7354L27.8082 28.618C27.1586 31.0555 24.9461 32.782 22.4089 32.782H9.31656C8.36255 32.782 7.57092 33.5742 7.7536 34.4882C8.54523 38.4288 12.0365 41.4147 16.2179 41.4147H24.5402C28.5186 41.4147 31.8881 38.7132 32.8624 35.0367C33.1872 33.7976 34.1818 32.782 35.4606 32.782H44.4323C45.4472 32.782 46.3403 32.0914 46.5839 31.1164L50.2782 16.7354C50.8668 14.4604 49.1618 12.2667 46.8275 12.2667ZM45.7314 18.5635C45.569 19.2134 44.9804 19.6603 44.3105 19.6603H34.7704C34.2021 19.6603 33.7758 19.1119 33.9382 18.5635C34.1006 17.9135 34.6892 17.4666 35.3591 17.4666H44.8992C45.4675 17.4666 45.8735 18.015 45.7314 18.5635ZM36.7394 49.6005H39.1142C40.0683 49.6005 40.8396 50.3927 40.8396 51.3271V51.713H31.401H21.9623V51.3271C21.9623 50.3724 22.7337 49.6005 23.6877 49.6005H26.0625C27.5037 49.6005 28.6607 48.4224 28.6607 47.0006V43.9944C28.6607 42.5522 27.4834 41.3944 26.0625 41.3944H31.401H36.7394C35.2982 41.3944 34.1412 42.5725 34.1412 43.9944V47.0006C34.1412 48.4427 35.3185 49.6005 36.7394 49.6005Z"/>
+			</svg>
+		</a>
+
+		<hgroup>
+			<h1>We are now live</h1>
+			<h2 class="light">Go to our website to find the best offers and promotions for furniture.</h2>
+		</hgroup>
+
+		<button>Go to Website</button>
+	</div> <!-- end timer-end -->
 
 	<script src="js/app.js"></script>
 </body>

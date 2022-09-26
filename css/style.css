@@ -48,7 +48,6 @@ h1 {
 	font-size: 2.4rem;
 	line-height: 1.3;
 	font-weight: 700;
-	letter-spacing: -2px;
 	margin: 2rem 0;
 }
 
@@ -57,6 +56,10 @@ h2 {
 	line-height: 1.3;
 	font-weight: 700;
 	margin: 2rem 0;
+}
+
+h2.light {
+	font-weight: 400;
 }
 
 p {
@@ -117,13 +120,52 @@ button:hover {
 
 
 /* ================================================= */
-/* Layout */
+/* Timer running and timer end */
 /* ================================================= */
-#main-container {
+#timer-running,
+#timer-end {
 	padding: 2rem;
 	display: flex;
 	flex-direction: column;
 	gap: 64px;
+	position: absolute;
+	width: 100%;
+}
+
+#timer-running.hidden {
+	animation: fadeOut 1.6s forwards;
+}
+
+#timer-end {
+	display: none;
+	opacity: 0;
+}
+
+#timer-end.visible {
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	animation: fadeIn 1.6s forwards 1.6s;
+}
+
+#timer-end h1 {
+	margin-top: 0;
+}
+
+#timer-end h2 {
+	margin: 0;
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	to {
+		opacity: 0;
+	}
 }
 
 
@@ -166,6 +208,7 @@ button:hover {
 	font-size: 1.33rem;
 	line-height: 1.3;
 	font-weight: 700;
+	font-family: 'Inconsolata', sans-serif;
 }
 
 #timer-container li:nth-child(even) {
@@ -202,7 +245,7 @@ button:hover {
 /* 768px + */
 /* ================================================= */
 @media screen and (min-width: 768px) {
-	#main-container {
+	#timer-running {
 		padding: 4rem;
 		margin: 0 auto;
 		text-align: center;
@@ -238,5 +281,19 @@ button:hover {
 		font-size: 3.15rem;
 		line-height: 1.4;
 		display: block;
+	}
+
+	#timer-end.visible {
+		align-items: center;
+		text-align: center;
+	}
+
+	#timer-end button {
+		width: auto;
+	}
+
+	h1,
+	h2 {
+		max-width: 30rem;
 	}
 }
